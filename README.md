@@ -8,22 +8,22 @@ The USTX module is a **Work In Progress**, but represents Openwater's work towar
 ## How to bring up USTX
 1. Install STM32CubeIDE in order to download embedded microcontroller firmware
 2. Clone the OW embedded repository from github
-  - Create USTX folder (e.g. C:/Openwater/USTX/) 
-  - Open a command prompt (windows->cmd)
-  - git clone https://github.com/OpenwaterInternet/embedded.git
+	- Create USTX folder (e.g. C:/Openwater/USTX/) 
+	- Open a command prompt (windows->cmd)
+	- git clone https://github.com/OpenwaterInternet/embedded.git
 3. Open the STM32CubeIDE
-  - Set the workspace to: embedded/ustx_cpp/
-  - Import Project: embedded/ustx_cpp/ustxtest
-    - Check the ustxtest folder
-    - In the left panel, you should see a blue IDE icon that says ustxtest, if you click the expand arrow you can see all the associated files.
-  - Go to “Project” menu, and click “Build All”
+	- Set the workspace to: embedded/ustx_cpp/
+	- Import Project: embedded/ustx_cpp/ustxtest
+	- Check the ustxtest folder
+	- In the left panel, you should see a blue IDE icon that says ustxtest, if you click the expand arrow you can see all the associated files.
+	- Go to “Project” menu, and click “Build All”
 4. Power on USTX
-  - For programming power provided from the usb-C cable is sufficient, no need for 12V barrel jack connector).
+	- For programming power provided from the usb-C cable is sufficient, no need for 12V barrel jack connector).
 
 5. Plug in the JTAG debug dongle (6pin) to the J-link tool and to USTX
-  - Once connected, in the project explorer (menu on the left), click ustxtest.elf.launch, and then click the green run arrow at the top of the screen
-  - If successful, green indicator light should come on
-  - To test: Open Putty, connect to ustx by selecting serial, entering COM port, and using baudrate 921600. If it connects, the green indicator light should start flashing
+	- Once connected, in the project explorer (menu on the left), click ustxtest.elf.launch, and then click the green run arrow at the top of the screen
+	- If successful, green indicator light should come on
+	- To test: Open Putty, connect to ustx by selecting serial, entering COM port, and using baudrate 921600. If it connects, the green indicator light should start flashing
 ![image](https://github.com/OpenwaterHealth/opw_ustx/assets/6217005/e549e51b-4d97-4533-b4d7-55df59b73eec)
 
 ## How to run and test the USTX
@@ -31,18 +31,16 @@ In order to run and test the USTX, there is a USTX-Onda Utility function that al
 
 ### To use the USTx-Onda Utility:
 1. Navigate to: C:/Openwater/system/util/ustx-onda/msvc/
-  - Open: ustx-onda.sln
-  - In the ‘Solution Explorer’ panel, right click on ustx-onda, scroll down to ‘project only’ and select ‘build only ustx-onda’
+	- Open: ustx-onda.sln
+	- In the ‘Solution Explorer’ panel, right click on ustx-onda, scroll down to ‘project only’ and select ‘build only ustx-onda’
   
 ### To Run:
-1. Power on the USTX and connect to computer:
-
-Follow these steps to safely power up the board:
-  1. Plug in a 12V barrel jack.
-  2. Plug in the USB cable and connect to the PC.
-  3. Turn on input power through +/-VDD.
-  4. Program the board using the PC.
-  5. Turn on the trigger signal.
+1. Follow these steps to safely power up the board:  
+    1. Plug in a 12V barrel jack.
+    2. Plug in the USB cable and connect to the PC.
+    3. Turn on input power through +/-VDD.
+    4. Program the board using the PC.
+    5. Turn on the trigger signal.
 
 Please note that plugging the USB cable before the barrel jack will prevent the board from starting properly, the barrel jack needs to be plugged in first.
 
