@@ -24,6 +24,7 @@ The USTX module is a **Work In Progress**, but represents Openwater's work towar
   - Once connected, in the project explorer (menu on the left), click ustxtest.elf.launch, and then click the green run arrow at the top of the screen
   - If successful, green indicator light should come on
   - To test: Open Putty, connect to ustx by selecting serial, entering COM port, and using baudrate 921600. If it connects, the green indicator light should start flashing
+![image](https://github.com/OpenwaterHealth/opw_ustx/assets/6217005/e549e51b-4d97-4533-b4d7-55df59b73eec)
 
 ## How to run and test the USTX
 In order to run and test the USTX, there is a USTX-Onda Utility function that allows you to program it to work with a specific probe, at a specific frequency, for various foci.
@@ -145,10 +146,8 @@ Please note that plugging the USB cable before the barrel jack will prevent the 
 Currently, OSSP is designed so that the laser pulse occurs when the ultrasound is at the focal spot, not when it is in the gel wax layer. Simon has experimented with adjusting the timing to get the laser pulse to arrive when the sound wave has reached the gel wax layer.
 
 
-License
--------
+# License
 open-LIFU is licensed under the GNU Affero General Public License v3.0. See [LICENSE](LICENSE) for details.
 
-Investigational Use Only
-------------------------
+# Investigational Use Only
 CAUTION - Investigational device. Limited by Federal (or United States) law to investigational use. The system described here has *not* been evaluated by the FDA and is not designed for the treatment or diagnosis of any disease. It is provided AS-IS, with no warranties. User assumes all liability and responsibility for identifying and mitigating risks associated with using this software.
