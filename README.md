@@ -7,13 +7,13 @@ The USTX module is a **Work In Progress**, but represents Openwater's work towar
 # Operating Instructions
 ## How to bring up USTX
 1. Install STM32CubeIDE in order to download embedded microcontroller firmware
-2. Clone the OW embedded repository from github
+2. Clone the This repository from github
 	- Create USTX folder (e.g. C:/Openwater/USTX/) 
 	- Open a command prompt (windows->cmd)
-	- git clone https://github.com/OpenwaterInternet/embedded.git
+	- git clone https://github.com/OpenwaterHealth/opw_ustx.git
 3. Open the STM32CubeIDE
 	- Set the workspace to: embedded/ustx_cpp/
-	- Import Project: embedded/ustx_cpp/ustxtest
+	- Import Project: embedded
 	- Check the ustxtest folder
 	- In the left panel, you should see a blue IDE icon that says ustxtest, if you click the expand arrow you can see all the associated files.
 	- Go to “Project” menu, and click “Build All”
