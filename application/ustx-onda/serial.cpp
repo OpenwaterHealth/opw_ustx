@@ -1,4 +1,4 @@
-#include "system/component/inc/serial.h"
+#include "./inc/serial.h"
 
 #include <cstdio>
 

@@ -3,10 +3,10 @@
 #include <vector>
 #include <tuple>
 
-#include "system/third_party/json-develop/single_include/nlohmann/json.hpp"
+#include "./inc/nlohmann/json.hpp"
 
-#include "system/component/inc/intelhex.h"
-#include "system/component/inc/serial.h"
+#include "./inc/intelhex.h"
+#include "./inc/serial.h"
 
 
 // Class to control the USTx PCB

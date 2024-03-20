@@ -1,8 +1,8 @@
 #undef _CRT_SECURE_NO_WARNINGS
 #define _CRT_SECURE_NO_WARNINGS
 
-#include "system/component/inc/intelhex.h"
-
+#include "./inc/intelhex.h"
+#include <stdint.h>
 #include <cassert>
 
 // intel hex op codes

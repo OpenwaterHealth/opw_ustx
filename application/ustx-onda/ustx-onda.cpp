@@ -1,9 +1,9 @@
 #undef _CRT_SECURE_NO_WARNINGS
 #define _CRT_SECURE_NO_WARNINGS
 
-#include "system/component/inc/intelhex.h"
-#include "system/component/inc/serial.h"
-#include "system/component/inc/ustx.h"
+#include "./inc/intelhex.h"
+#include "./inc/serial.h"
+#include "./inc/ustx.h"
 
 #include <conio.h>
 #include <cstring>
