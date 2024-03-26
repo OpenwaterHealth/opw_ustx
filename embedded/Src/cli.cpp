@@ -7,31 +7,31 @@
 
 
 static const char usage[] =
-    "--------------USTx Commands:-----------------\n"
-    "f <n>:\n"
-    "  set to foucs <n>.  will stay on this focus indefinitely\n"
-    "i <n>\n"
-    "  set to focus <n>.  will auto increment foci, wrapping around\n"
-    "  after the last focus\n"
-    "c <n>\n"
-    "  set the cycle count to <n>\n"
-    "t\n"
-    "  return (OKAY|SHUTDOWN) if the device is in thermal shutdown\n"
-    "reset\n"
-    "  reset the device\n"
-    "r <chip> <address>\n"
-    "  read from TI <chip> (0-3) at <address>\n"
-    "w <chip> <address> <data>\n"
-    "  write to TI <chip> (0-3) with 32-bit <data> at <address>\n"
-    "rf <address> <n>\n"
-    "  read <n> bytes from flash <address>\n"
-    "wf <address> <data>\n"
-    "  write <data> byte to <address>\n"
-    "ef <address>\n"
-    "  erase 64KB sector containing <address>\n"
-    "help\n"
-    "  print this message\n"
-    "you may also send an intel hex file (copy/paste into terminal)\n\n";
+    "--------------USTx Commands:-----------------\r\n"
+    "f <n>:\r\n"
+    "  set to foucs <n>.  will stay on this focus indefinitely\r\n"
+    "i <n>\r\n"
+    "  set to focus <n>.  will auto increment foci, wrapping around\r\n"
+    "  after the last focus\r\n"
+    "c <n>\r\n"
+    "  set the cycle count to <n>\r\n"
+    "t\r\n"
+    "  return (OKAY|SHUTDOWN) if the device is in thermal shutdown\r\n"
+    "reset\r\n"
+    "  reset the device\r\n"
+    "r <chip> <address>\r\n"
+    "  read from TI <chip> (0-3) at <address>\r\n"
+    "w <chip> <address> <data>\r\n"
+    "  write to TI <chip> (0-3) with 32-bit <data> at <address>\r\n"
+    "rf <address> <n>\r\n"
+    "  read <n> bytes from flash <address>\r\n"
+    "wf <address> <data>\r\n"
+    "  write <data> byte to <address>\r\n"
+    "ef <address>\r\n"
+    "  erase 64KB sector containing <address>\r\n"
+    "help\r\n"
+    "  print this message\r\n"
+    "you may also send an intel hex file (copy/paste into terminal)\r\n\r\n";
 
 
 
@@ -51,52 +51,52 @@ void ParseCMD(const char* s) {
 
   } else if (strncmp(s, "t", 1) == 0) {
     if (shutz->Get()) {
-      printf("OKAY\n");
+      printf("OKAY\r\n");
     } else {
-      printf("SHUTDOWN\n");
+      printf("SHUTDOWN\r\n");
     }
 
   } else if (strncmp(s, "cw ", 3) == 0) {
     if (strcmp(s+3, "on") == 0) {
       fsm->SetCW(true);
-      printf("CW Enable\n");
+      printf("CW Enable\r\n");
     } else {
       fsm->SetCW(false);
-      printf("CW Disable\n");
+      printf("CW Disable\r\n");
     }
 
   } else if (strncmp(s, "f ", 2) == 0) {
     int focus;
     if (sscanf(s+2, "%d", &focus)) {
       fsm->SetFocus(focus);
-      printf("Set focus to %d\n", focus);
+      printf("Set focus to %d\r\n", focus);
     } else {
-      printf("Usage: f <focus number>\n");
+      printf("Usage: f <focus number>\r\n");
     }
 
   } else if (strncmp(s, "f", 1) == 0) {
-    printf("Focus: %d\n", fsm->GetFocus());
+    printf("Focus: %d\r\n", fsm->GetFocus());
 
   } else if (strncmp(s, "i ", 2) == 0) {
     int focus;
     if (sscanf(s+2, "%d", &focus)) {
       fsm->SetFocus(focus, true);
-      printf("Set initial focus to %d\n", focus);
+      printf("Set initial focus to %d\r\n", focus);
     } else {
-      printf("Usage: i <start focus number>\n");
+      printf("Usage: i <start focus number>\r\n");
     }
 
   } else if (strncmp(s, "c ", 2) == 0) {
     int count;
     if (sscanf(s+2, "%d", &count)) {
       for (int chip = 0 ; chip < 4 ; ++chip) tx[chip]->SetRepeat(count);
-      printf("Set repeat count to %d\n", count);
+      printf("Set repeat count to %d\r\n", count);
     } else {
-      printf("Usage: c <repeat count>\n");
+      printf("Usage: c <repeat count>\r\n");
     }
 
   } else if (strncmp(s, "e ", 2) == 0) {
-    printf("Echo: %s\n", s+2);
+    printf("Echo: %s\r\n", s+2);
 
   } else if (strncmp(s, "rf ", 3) == 0) {
     uint32_t addr;
@@ -106,19 +106,19 @@ void ParseCMD(const char* s) {
       flash->Read(addr, buf, len);
       printf("Reading address %lx: ", addr);
       for (unsigned int i = 0 ; i < len ; ++i) printf("%02X ", buf[i]);
-      printf("\n");
+      printf("\r\n");
     } else {
-      printf("Usage: rf <address> <length>\n");
+      printf("Usage: rf <address> <length>\r\n");
     }
 
   } else if (strncmp(s, "wf ", 3) == 0) {
     uint32_t addr;
     uint32_t data;
     if (sscanf(s + 3, "%lx %lx", &addr, &data) == 2) {
-      printf("Writing address %lx: %02lx\n", addr, data);
+      printf("Writing address %lx: %02lx\r\n", addr, data);
       flash->Write(addr, (uint8_t*)&data, 1);
     } else {
-      printf("Usage: wf <address> <data>\n");
+      printf("Usage: wf <address> <data>\r\n");
     }
 
   } else if (strncmp(s, "ef ", 3) == 0) {
@@ -126,33 +126,33 @@ void ParseCMD(const char* s) {
     uint32_t data;
     if (sscanf(s + 3, "%lx %lx", &addr, &data) == 1) {
       flash->EraseBlock2(addr);
-      printf("Erasing address %lx: %02lx\n", addr, data);
+      printf("Erasing address %lx: %02lx\r\n", addr, data);
     } else {
-      printf("Usage: ef <address>\n");
+      printf("Usage: ef <address>\r\n");
     }
 
   } else if (strncmp(s, "r ", 2) == 0) {
     uint32_t chip, addr;
     if (sscanf(s + 2, "%lu %lx", &chip, &addr) == 2) {
       uint32_t data = tx[chip]->ReadReg(addr);
-      printf("Read Chip %ld %lx: %lx\n", chip, addr, data);
+      printf("Read Chip %ld %lx: %lx\r\n", chip, addr, data);
     } else {
-      printf("Usage: r <chip> <address>\n");
+      printf("Usage: r <chip> <address>\r\n");
     }
 
   } else if (strncmp(s, "w ", 2) == 0) {
     uint32_t chip, addr, data;
     if (sscanf(s + 2, "%lu %lx %lx", &chip, &addr, &data) == 3) {
       tx[chip]->WriteReg(addr, data);
-      printf("Write Chip %ld %lx: %lx\n", chip, addr, data);
+      printf("Write Chip %ld %lx: %lx\r\n", chip, addr, data);
     } else {
-      printf("Usage: w <chip> <address> <data>\n");
+      printf("Usage: w <chip> <address> <data>\r\n");
     }
   } else if (s[0] == 'h') {
       Usage();
 
   } else {
-    printf("Unknown command\n");
+    printf("\r\n");
   }
 }
 

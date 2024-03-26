@@ -50,6 +50,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -85,10 +87,13 @@ void Error_Handler(void);
 #define TRIG_Pin GPIO_PIN_10
 #define TRIG_GPIO_Port GPIOC
 #define TRIG_EXTI_IRQn EXTI15_10_IRQn
+#define TRIG_INH_Pin GPIO_PIN_11
+#define TRIG_INH_GPIO_Port GPIOC
 #define LEDG_Pin GPIO_PIN_2
 #define LEDG_GPIO_Port GPIOD
 #define LEDR_Pin GPIO_PIN_6
 #define LEDR_GPIO_Port GPIOB
+
 /* USER CODE BEGIN Private defines */
 extern SPI_HandleTypeDef hspi1;
 extern SPI_HandleTypeDef hspi2;
@@ -101,5 +106,3 @@ extern TIM_HandleTypeDef htim1;
 #endif
 
 #endif /* __MAIN_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
